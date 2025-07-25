@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
-}
+/*
+ * Tailwind CSS Directives:
+ * These lines are crucial. They inject Tailwind's base styles,
+ * component styles (like preflight for consistent cross-browser styling),
+ * and all the utility classes.
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+/*
+ * Custom Animations:
+ * These are the keyframes for the animations used in JobList.jsx
+ * for elements like the hero section text and job cards.
+ * If you skip these, the 'animate-...' classes in JobList.jsx won't have any effect.
+ */
+@keyframes fadeInDown {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(-20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*
+ * Associate custom keyframes with utility classes:
+ * These bind the keyframes to the utility classes used in your JSX.
+ */
+.animate-fadeInDown {
+  animation: fadeInDown 0.6s ease-out forwards;
+}
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+.delay-200 { /* This is for staggering animations */
+    animation-delay: 0.2s;
+}
+/* You can add more delays if needed, e.g., .delay-400, .delay-600 */
+
+/*
+ * Optional: Global styles that Tailwind doesn't cover or you want to override.
+ * For a job portal, you might not need much here, as Tailwind covers most common needs.
+ * For instance, you could define a custom scrollbar style or a default font not covered by Tailwind's defaults.
+ */
+/* html, body {
+  scroll-behavior: smooth;
+} */
