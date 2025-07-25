@@ -1,0 +1,79 @@
+/*
+ * Tailwind CSS Directives:
+ * These lines are absolutely crucial. They inject Tailwind's
+ * base styles (including its powerful "Preflight" reset),
+ * component styles, and all the utility classes you use.
+ * This is the ideal place for them in a React app.
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Custom Animations:
+ * These are the keyframes for the animations used in JobList.jsx
+ * for elements like the hero section text and job cards.
+ * Placing them here makes them globally available.
+ */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*
+ * Associate custom keyframes with utility classes:
+ * These bind the keyframes to the utility classes used in your JSX.
+ */
+.animate-fadeInDown {
+  animation: fadeInDown 0.6s ease-out forwards;
+}
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+.delay-200 { /* This is for staggering animations */
+    animation-delay: 0.2s;
+}
+.delay-400 { /* Example: You can add more delays */
+    animation-delay: 0.4s;
+}
+/*
+ * You can also set global font-family here if you prefer not to use Tailwind's defaults
+ * or want a specific system font stack for the entire app.
+ * Tailwind's `font-sans`, `font-serif`, `font-mono` utilities are often preferred.
+ *
+ * Example if you wanted a specific default font that Tailwind doesn't provide out-of-the-box
+ * and want it globally applied:
+ *
+ * body {
+ * font-family: 'Inter', sans-serif;
+ * }
+ */
